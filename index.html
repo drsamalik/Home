@@ -184,6 +184,80 @@
       color: var(--accent);
       margin: 0 0 44px 0;
     }
+
+    /* Featured / highlight banner */
+    .featured {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+      background: linear-gradient(135deg, #eaf3fa 0%, #f7fbfe 100%);
+      border: 1px solid #cfe2f1;
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 36px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .featured:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(31,95,139,0.12);
+    }
+    .featured-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      aspect-ratio: 1 / 1.28;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      box-shadow: 0 6px 18px rgba(31,95,139,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-badge::after {
+      content: "Feb 3, 2026 · Vol. 123 · No. 5";
+      position: absolute;
+      bottom: 12px;
+      left: 0; right: 0;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      opacity: 0.85;
+    }
+    .featured-body .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #d14545;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .featured-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 8px 0;
+      line-height: 1.35;
+    }
+    .featured-body p {
+      color: #333;
+      margin: 0;
+      font-size: 15px;
+    }
+    @media (max-width: 640px) {
+      .featured { grid-template-columns: 1fr; text-align: center; }
+      .featured-badge { width: 140px; margin: 0 auto; }
+    }
     .update-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -244,6 +318,56 @@
       margin: 0;
     }
 
+    /* ---------- Contact ---------- */
+    .contact {
+      background: var(--bg);
+      padding: 60px 32px 80px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .contact-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .contact h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 12px 0;
+    }
+    .contact .contact-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 36px 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .contact-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 22px;
+    }
+    .contact-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 10px 0;
+    }
+    .contact-card p {
+      margin: 0 0 6px 0;
+      font-size: 15px;
+      color: #2a2a2a;
+      line-height: 1.55;
+    }
+    .contact-card a { color: var(--link); }
+
     /* ---------- Footer ---------- */
     .site-footer {
       background: var(--bg);
@@ -287,11 +411,8 @@
         <a href="#" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="publications.html">Publications</a>
-        <a href="CV.pdf" target="_blank">CV</a>
-        <button class="nav-search" aria-label="Search" title="Search">
-          <!-- search icon -->
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
+        <a href="https://drsamalik.github.io/Home/CV.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -343,6 +464,20 @@
   <section class="updates">
     <div class="updates-inner">
       <h2>Recent Updates</h2>
+
+      <a class="featured" href="publications.html" aria-label="Featured on PNAS Current Issue cover">
+        <div class="featured-badge">PNAS</div>
+        <div class="featured-body">
+          <span class="eyebrow">Featured on PNAS Cover</span>
+          <h3>Our CAR-NK cytotoxicity paper is on the Current Issue front page of PNAS.</h3>
+          <p>
+            &ldquo;A framework integrating multiscale in silico modeling and experimental data predicts
+            CAR-NK cell cytotoxicity across target cell types.&rdquo; — <em>PNAS</em>, Vol. 123, No. 5
+            (February 3, 2026).
+          </p>
+        </div>
+      </a>
+
       <div class="update-grid">
 
         <a class="update-card" href="publications.html">
@@ -379,6 +514,47 @@
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <h2>Contact</h2>
+      <p class="contact-sub">The best way to reach me is by email. Happy to chat about NK cells, stochastic resetting, or potential collaborations.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Institute Email</h3>
+          <p><a href="mailto:saeed.ahmad@nationwidechildrens.org">saeed.ahmad@nationwidechildrens.org</a></p>
+          <p style="font-size:13.5px;color:#666;">Preferred for research inquiries.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Personal Email</h3>
+          <p><a href="mailto:saeediitb@gmail.com">saeediitb@gmail.com</a></p>
+          <p style="font-size:13.5px;color:#666;">Alternative channel.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Office</h3>
+          <p>Steve &amp; Cindy Rasmussen Institute for Genomic Medicine</p>
+          <p>Nationwide Children's Hospital</p>
+          <p>575 Children's Crossroad, Columbus, OH 43215</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Find Me Online</h3>
+          <p>
+            <a href="https://scholar.google.com/citations?user=5NiP6fwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> ·
+            <a href="https://www.linkedin.com/in/saeed-ahmad-b1a531228/" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+          <p>
+            <a href="https://www.researchgate.net/profile/Saeed-Ahmad-15" target="_blank" rel="noopener">ResearchGate</a> ·
+            <a href="https://github.com/drsamalik" target="_blank" rel="noopener">GitHub</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
