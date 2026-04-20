@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV — Saeed Ahmad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Curriculum Vitae of Saeed Ahmad — Postdoctoral Fellow, Nationwide Children's Hospital.">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f4f2;
+      --bg-white: #ffffff;
+      --text: #222;
+      --muted: #555;
+      --sub-muted: #666;
+      --link: #1772d0;
+      --link-hover: #f09228;
+      --border: #e5e5e5;
+      --rule: #bbbbbb;
+      --accent: #1f5f8b;
+      --max-width: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg); color: var(--text);
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 15.5px; line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--link); text-decoration: none; transition: color 0.15s ease-in-out; }
+    a:hover, a:focus { color: var(--link-hover); }
+    p { margin: 0 0 10px 0; }
+
+    /* ---------- Top Nav ---------- */
+    .topnav { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .topnav-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: 0.2px; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--text); font-size: 15px; font-weight: 400;
+      padding: 4px 2px; border-bottom: 2px solid transparent;
+    }
+    .nav-links a.active, .nav-links a:hover {
+      color: var(--accent); border-bottom-color: var(--accent);
+    }
+
+    /* ---------- CV wrapper ---------- */
+    .cv-wrap {
+      background: var(--bg);
+      padding: 50px 32px 70px 32px;
+    }
+    .cv-sheet {
+      max-width: 860px; margin: 0 auto;
+      background: var(--bg-white);
+      padding: 56px 72px 64px 72px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+    }
+
+    /* ---------- Header block ---------- */
+    .cv-name {
+      text-align: center;
+      font-size: 34px; font-weight: 700;
+      color: var(--accent);
+      margin: 0 0 4px 0;
+      letter-spacing: 0.3px;
+    }
+    .cv-subtitle {
+      text-align: center;
+      font-size: 15px; font-style: italic;
+      color: var(--sub-muted);
+      margin: 0 0 16px 0;
+    }
+    .cv-affil {
+      text-align: center;
+      font-size: 14.5px; color: #333;
+      margin: 0 0 6px 0;
+      line-height: 1.5;
+    }
+    .cv-links {
+      text-align: center;
+      font-size: 14.5px;
+      margin: 8px 0 2px 0;
+    }
+    .cv-links a {
+      color: var(--link);
+      margin: 0 2px;
+    }
+    .cv-links .sep { color: #999; margin: 0 8px; }
+    .cv-links .icon { margin-right: 4px; }
+    .cv-download {
+      text-align: center;
+      margin-top: 14px;
+    }
+    .cv-download a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .cv-download a:hover {
+      background: #174b6e;
+      color: #fff;
+    }
+
+    /* ---------- Section heading (blue + horizontal rule) ---------- */
+    .cv-section {
+      margin-top: 34px;
+    }
+    .cv-section h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ---------- Sub heading with dotted trailing rule ---------- */
+    .cv-subhead {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 14px 0 6px 0;
+      font-size: 14.5px;
+      font-weight: 700;
+      font-style: italic;
+      color: #222;
+    }
+    .cv-subhead .label { white-space: nowrap; }
+    .cv-subhead .dots {
+      flex: 1;
+      border-bottom: 1.5px dotted #c8c8c8;
+      transform: translateY(-4px);
+    }
+
+    /* ---------- Entry rows (Employment / Education) ---------- */
+    .cv-entry {
+      margin-top: 12px;
+    }
+    .cv-entry-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .cv-entry-row .place { font-weight: 700; color: #222; }
+    .cv-entry-row .place .loc { font-weight: 400; color: #333; }
+    .cv-entry-row .date {
+      color: var(--sub-muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .cv-entry .role {
+      font-style: italic;
+      color: #333;
+      margin: 2px 0 0 0;
+      font-size: 14.5px;
+    }
+    .cv-entry .desc {
+      color: #333;
+      font-size: 14.5px;
+      margin: 4px 0 0 0;
+    }
+
+    /* ---------- Publications ---------- */
+    .cv-pub {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .cv-pub .num {
+      font-weight: 700;
+      color: #222;
+    }
+    .cv-pub .body { font-size: 14.5px; color: #222; }
+    .cv-pub .body b { color: #222; }
+    .cv-pub .body i { color: #333; }
+    .cv-pub .body .year { font-weight: 700; color: #222; }
+
+    /* ---------- Conferences ---------- */
+    .cv-list {
+      list-style: disc;
+      padding-left: 22px;
+      margin: 10px 0 0 0;
+    }
+    .cv-list li {
+      margin: 6px 0;
+      font-size: 14.5px;
+    }
+    .cv-list li i { color: #333; }
+
+    /* ---------- Skills / Teaching plain rows ---------- */
+    .cv-row {
+      margin-top: 6px;
+      font-size: 14.5px;
+      color: #222;
+    }
+
+    /* ---------- References ---------- */
+    .cv-ref {
+      margin-top: 14px;
+      font-size: 14.5px;
+      color: #222;
+    }
+    .cv-ref .name { font-weight: 700; }
+    .cv-ref .line { color: #333; }
+    .cv-ref .contact { color: var(--sub-muted); }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      padding: 24px 32px; text-align: center;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 720px) {
+      .cv-sheet { padding: 36px 22px 44px 22px; }
+      .cv-name { font-size: 26px; }
+      .cv-entry-row { flex-direction: column; gap: 2px; }
+      .cv-entry-row .date { font-size: 13px; }
+    }
+    @media (max-width: 640px) {
+      .topnav-inner { padding: 14px 18px; flex-wrap: wrap; gap: 10px; }
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 14px; }
+      .cv-wrap { padding: 30px 12px 50px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Top Navigation ===== -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">Saeed Ahmad</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html" class="active">CV</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== CV Content ===== -->
+  <section class="cv-wrap">
+    <article class="cv-sheet">
+
+      <h1 class="cv-name">Saeed Ahmad <span style="color:#999;font-weight:400;">| </span><span style="color:var(--muted);font-weight:400;font-size:22px;">Curriculum Vitae</span></h1>
+      <p class="cv-subtitle"></p>
+      <p class="cv-affil">
+        Steve &amp; Cindy Rasmussen Institute for Genomic Medicine,<br>
+        Nationwide Children's Hospital, Columbus, OH, USA
+      </p>
+
+      <p class="cv-links">
+        <a href="mailto:saeed.ahmad@nationwidechildrens.org"><span class="icon">&#9993;</span>Email</a>
+        <span class="sep">·</span>
+        <a href="https://scholar.google.com/citations?user=5NiP6fwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/saeed-ahmad-b1a531228/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">·</span>
+        <a href="https://www.researchgate.net/profile/Saeed-Ahmad-15" target="_blank" rel="noopener">ResearchGate</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/drsamalik" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">·</span>
+        <a href="https://drsamalik.github.io/Home/" target="_blank" rel="noopener">Homepage</a>
+      </p>
+
+      <p class="cv-download">
+        <a href="https://drsamalik.github.io/Home/CV.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </p>
+
+      <!-- ===== Research Interests ===== -->
+      <section class="cv-section">
+        <h2>Research Interests</h2>
+
+        <div class="cv-subhead"><span class="label">Computational Immunology &amp; NK cell modeling</span><span class="dots"></span></div>
+        <p class="cv-row">Multiscale <i>in silico</i> models of Natural Killer (NK) cell responses. Predicting CAR-NK cytotoxicity across target cell types; clonal variability in early NK responses; spatial statistics of resting-state receptor organization; Protein Language Models.</p>
+
+        <div class="cv-subhead"><span class="label">Stochastic processes and first-passage problems</span><span class="dots"></span></div>
+        <p class="cv-row">First-passage theory under stochastic resetting. Effects of dimension, attractive bias, potential barriers, and time overheads on optimal resetting-rate vanishing transitions.</p>
+
+        <div class="cv-subhead"><span class="label">Theoretical biophysics of virus capsid assembly</span><span class="dots"></span></div>
+        <p class="cv-row">Assembly and disassembly dynamics of viral capsids under varying physiological conditions and the fate of the enclosed genome.</p>
+      </section>
+
+      <!-- ===== Employment ===== -->
+      <section class="cv-section">
+        <h2>Employment</h2>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Nationwide Children's Hospital<span class="loc">, Columbus, OH</span></div>
+            <div class="date">Sep 2023 — Present</div>
+          </div>
+          <p class="role">Postdoctoral Fellow, Steve &amp; Cindy Rasmussen Institute for Genomic Medicine</p>
+          <p class="desc">PI: Prof. Jayajit Das. Computational immunology &amp; multiscale models of NK / CAR-NK cell responses.</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">University of California, Riverside<span class="loc">, Riverside, CA</span></div>
+            <div class="date">Sep 2022 — Sep 2023</div>
+          </div>
+          <p class="role">Postdoctoral Fellow, Department of Physics</p>
+          <p class="desc">Theoretical biophysics of virus capsid assembly and disassembly.</p>
+        </div>
+      </section>
+
+      <!-- ===== Education ===== -->
+      <section class="cv-section">
+        <h2>Education</h2>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Indian Institute of Technology (IIT) Bombay<span class="loc">, Mumbai, India</span></div>
+            <div class="date">2017 — 2022</div>
+          </div>
+          <p class="role">Ph.D. in Physics &nbsp;·&nbsp; CPI 9.33 / 10</p>
+          <p class="desc">Thesis: &ldquo;First Passage in Biased Diffusion with Stochastic Resetting.&rdquo; &nbsp; Advisor: Prof. Dibyendu Das.</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Indian Institute of Technology (IIT) Indore<span class="loc">, Indore, India</span></div>
+            <div class="date">2014 — 2016</div>
+          </div>
+          <p class="role">M.Sc. in Physics &nbsp;·&nbsp; CPI 8.5 / 10</p>
+          <p class="desc">Thesis: &ldquo;Photoproduction Cross-section of the &eta;&prime; meson with CLAS.&rdquo; &nbsp; Advisor: Prof. Ankhi Roy.</p>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Jamia Millia Islamia (JMI)<span class="loc">, New Delhi, India</span></div>
+            <div class="date">2011 — 2014</div>
+          </div>
+          <p class="role">B.Sc. (Honours) in Physics &nbsp;·&nbsp; Gold Medal</p>
+        </div>
+      </section>
+
+      <!-- ===== Publications ===== -->
+      <section class="cv-section">
+        <h2>Publications</h2>
+
+        <div class="cv-pub">
+          <div class="num">7:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Debangana Mukhopadhyay, Rajdeep Grewal, Ciriyam Jayaprakash, Jayajit Das.
+            <i>&ldquo;Resting-state spatial statistics of NK cell receptors may improve early signal discrimination.&rdquo;</i>
+            Biophysical Journal, <span class="year">2026</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">6:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Kun Xing, Marcelo S. F. Pereira, Stephanie Castle, Harshana Rajakaruna, Indrani Nayak, William C. Stewart, Kyle A. Beckwith, Mitchell S. Cairo, Meisam Naeimi Kararoudi, Dean A. Lee, Jayajit Das.
+            <i>&ldquo;A framework integrating multiscale in silico modeling and experimental data predicts CAR-NK cell cytotoxicity across target cell types.&rdquo;</i>
+            Proceedings of the National Academy of Sciences, 123, 2500319123, <span class="year">2026</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">5:</div>
+          <div class="body">
+            Darren Wethington, <b>Saeed Ahmad</b>, Marc Potempa, Giuseppe Giuliani, Oscar A. Aguilar, Maheshwor Poudel, Simon Grassmann, William Stewart, Nicholas M. Adams, Joseph C. Sun, Lewis L. Lanier, Jayajit Das.
+            <i>&ldquo;Clonal stochasticity in early NK cell response to mouse cytomegalovirus is generated by mature subsets of varying proliferative ability.&rdquo;</i>
+            eLife, <span class="year">2025</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">4:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Dibyendu Das.
+            <i>&ldquo;Comparing the roles of time overhead and spatial dimensions on optimal resetting rate vanishing transitions, in Brownian processes with potential bias and stochastic resetting.&rdquo;</i>
+            Journal of Physics A: Mathematical and Theoretical, 56, 104001, <span class="year">2023</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">3:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Krishna Rijal, Dibyendu Das.
+            <i>&ldquo;First passage in the presence of stochastic resetting and a potential barrier.&rdquo;</i>
+            Physical Review E, 105, 044134, <span class="year">2022</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">2:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Dibyendu Das.
+            <i>&ldquo;Role of dimensions in first passage of a diffusing particle under stochastic resetting and attractive bias.&rdquo;</i>
+            Physical Review E, 102, 032145, <span class="year">2020</span>.
+          </div>
+        </div>
+
+        <div class="cv-pub">
+          <div class="num">1:</div>
+          <div class="body">
+            <b>Saeed Ahmad</b>, Indrani Nayak, Ajay Bansal, Amitabha Nandi, Dibyendu Das.
+            <i>&ldquo;First passage of a particle in a potential under stochastic resetting: A vanishing transition of optimal resetting rate.&rdquo;</i>
+            Physical Review E, 99, 022130, <span class="year">2019</span>.
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Awards ===== -->
+      <section class="cv-section">
+        <h2>Awards &amp; Achievements</h2>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Best Poster Award<span class="loc">, PIIO Immuno-Oncology Symposium, OSUCCC</span></div>
+            <div class="date">2024</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Gold Medal, B.Sc. Physics<span class="loc">, Jamia Millia Islamia</span></div>
+            <div class="date">2014</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Qualified CSIR-JRF (2016), GATE Physics (2017), JAM Physics (2014)</div>
+            <div class="date">2014 — 2017</div>
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-row">
+            <div class="place">Teaching Assistantship Fellowship<span class="loc">, IIT Bombay</span></div>
+            <div class="date">2017 — 2022</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Conferences ===== -->
+      <section class="cv-section">
+        <h2>Conferences &amp; Presentations</h2>
+        <ul class="cv-list">
+          <li>Poster &amp; Guest Talk, <i>OSUCCC–Pelotonia Institute for Immuno-Oncology Sixth Annual Symposium</i>, Columbus, OH (2024).</li>
+          <li>Poster, <i>Ohio State University College of Medicine</i>, Columbus, OH (2024).</li>
+          <li>Poster, <i>NCH Research Retreat</i>, Nationwide Children's Hospital, Columbus, OH (2024).</li>
+          <li>Poster, <i>Indian Statistical Physics Community Meeting</i>, ICTS, Bangalore, India (2019).</li>
+          <li>Participant, <i>Bangalore School on Statistical Physics — X</i>, ICTS, Bangalore, India (2019).</li>
+        </ul>
+      </section>
+
+      <!-- ===== Teaching ===== -->
+      <section class="cv-section">
+        <h2>Teaching Experience</h2>
+
+        <div class="cv-subhead"><span class="label">Teaching Assistant — IIT Bombay</span><span class="dots"></span></div>
+        <ul class="cv-list">
+          <li>Physics General Laboratory (experimental) — supervised undergraduate experimental sessions; graded lab reports; mentored students on data analysis and error propagation.</li>
+          <li>Conducted examinations (invigilation, paper preparation support, and grading) for introductory Physics courses.</li>
+        </ul>
+      </section>
+
+      <!-- ===== Skills ===== -->
+      <section class="cv-section">
+        <h2>Relevant Skills</h2>
+
+        <div class="cv-subhead"><span class="label">Programming Languages</span><span class="dots"></span></div>
+        <p class="cv-row">Python (NumPy, PyTorch, scikit-learn, pandas, SciPy, matplotlib), C++, CUDA (GPU), MPI.</p>
+
+        <div class="cv-subhead"><span class="label">Model Development</span><span class="dots"></span></div>
+        <p class="cv-row">Stochastic protein–protein interaction networks, multiscale cell-growth models, virus-growth models, protein language models, first-passage theory.</p>
+
+        <div class="cv-subhead"><span class="label">Software &amp; Tools</span><span class="dots"></span></div>
+        <p class="cv-row">Mathematica, LaTeX, Gnuplot, Keynote, Microsoft Office, Xmgrace, OVITO.</p>
+
+        <div class="cv-subhead"><span class="label">Operating Systems</span><span class="dots"></span></div>
+        <p class="cv-row">macOS, Linux (HPC / SLURM), Windows.</p>
+      </section>
+
+      <!-- ===== References ===== -->
+      <section class="cv-section">
+        <h2>References</h2>
+
+        <div class="cv-ref">
+          <div><span class="name">Prof. Jayajit Das</span> <span class="line">(current postdoctoral advisor)</span></div>
+          <div class="line">Steve &amp; Cindy Rasmussen Institute for Genomic Medicine, Abigail Wexner Research Institute,</div>
+          <div class="line">Nationwide Children's Hospital, Columbus, OH</div>
+          <div class="contact">&#9993; <a href="mailto:jayajit.das@nationwidechildrens.org">jayajit.das@nationwidechildrens.org</a> &nbsp; &#9742; +1 (614) 355-5632</div>
+        </div>
+
+        <div class="cv-ref">
+          <div><span class="name">Prof. Dibyendu Das</span> <span class="line">(Ph.D. advisor)</span></div>
+          <div class="line">Department of Physics, IIT Bombay, Mumbai 400076, India</div>
+          <div class="contact">&#9993; <a href="mailto:dibyendu@phy.iitb.ac.in">dibyendu@phy.iitb.ac.in</a> &nbsp; &#9742; +91-22-25767555</div>
+        </div>
+
+        <div class="cv-ref">
+          <div><span class="name">Prof. Amitabha Nandi</span></div>
+          <div class="line">Department of Physics, IIT Bombay, Mumbai 400076, India</div>
+          <div class="contact">&#9993; <a href="mailto:amitabha@phy.iitb.ac.in">amitabha@phy.iitb.ac.in</a> &nbsp; &#9742; +91-22-25767599</div>
+        </div>
+
+        <div class="cv-ref">
+          <div><span class="name">Prof. Mithun Kumar Mitra</span></div>
+          <div class="line">Department of Physics, IIT Bombay, Mumbai 400076, India</div>
+          <div class="contact">&#9993; <a href="mailto:mithun@phy.iitb.ac.in">mithun@phy.iitb.ac.in</a> &nbsp; &#9742; +91-22-25767565</div>
+        </div>
+      </section>
+
+    </article>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    &copy; <span id="year"></span> Saeed Ahmad · Nationwide Children's Hospital
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
